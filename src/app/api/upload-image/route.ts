@@ -12,13 +12,13 @@ cloudinary.config({
 interface CloudinaryUploadResult {
   public_id: string;
   [key: string]:
-  | string
-  | number
-  | boolean
-  | null
-  | undefined
-  | Record<string, unknown>
-  | unknown[];
+    | string
+    | number
+    | boolean
+    | null
+    | undefined
+    | Record<string, unknown>
+    | unknown[];
 }
 
 export async function POST(req: NextRequest) {

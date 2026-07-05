@@ -93,6 +93,7 @@ export async function POST(req: NextRequest) {
         title: title ?? "",
         description,
         originalSize: originalSize ?? "",
+        userId : userId,
         publicId: res.public_id,
         compressedSize: String(res.bytes),
         duration: res.duration ?? 0,
@@ -101,6 +102,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(video);
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       {
         error: "Video Upload Failed",

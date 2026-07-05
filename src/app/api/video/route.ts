@@ -1,18 +1,31 @@
 import { prisma } from "@/lib/prisma";
-import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const videos = await prisma.video.findMany({
-      orderBy: { createdAt: "desc" },
+      where: {
+        userId,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
+
     return NextResponse.json(videos);
-  } catch {
+  } catch (error) {
+    console.error(error);
+
     return NextResponse.json(
       { error: "Error while fetching videos" },
       { status: 500 },
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }

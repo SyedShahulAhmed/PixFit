@@ -5,10 +5,11 @@ import React, { useCallback, useState } from "react";
 import Image from "next/image";
 
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Video } from "../../generated/prisma/client";
+;
 import { getCldImageUrl } from "next-cloudinary";
 import { filesize } from "filesize";
 import { Download, Clock, HardDrive, Calendar } from "lucide-react";
+import type { Video } from "@/types/Video";
 
 dayjs.extend(relativeTime);
 

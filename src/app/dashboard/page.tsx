@@ -162,11 +162,7 @@ export default function DashboardPage() {
             {safeVideos.map((video) => (
               <VideoCard
                 key={video.id}
-                video={{
-                  ...video,
-                  createdAt: new Date(video.createdAt),
-                  updatedAt: new Date(video.updatedAt),
-                }}
+                video={video}
                 onDownload={handleDownload}
               />
             ))}

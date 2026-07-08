@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import VideoCard from "@/components/VideoCard";
-import { Video } from "../../../generated/prisma/client";
+import type { Video } from "@/types/Video";
 
 export default function DashboardPage() {
   const [videos, setVideos] = useState<Video[]>([]);
@@ -162,7 +162,11 @@ export default function DashboardPage() {
             {safeVideos.map((video) => (
               <VideoCard
                 key={video.id}
-                video={video}
+                video={{
+                  ...video,
+                  createdAt: new Date(video.createdAt),
+                  updatedAt: new Date(video.updatedAt),
+                }}
                 onDownload={handleDownload}
               />
             ))}

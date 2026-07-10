@@ -60,7 +60,7 @@ PixFit is a full-stack SaaS application designed for content creators to optimiz
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/pixfit.git
+git clone https://github.com/SyedShahulAhmed/PixFit
 cd social-share
 
 # Install dependencies

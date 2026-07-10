@@ -101,7 +101,7 @@ Visit `http://localhost:3000` to see the application.
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/pixfit.git
+git clone https://github.com/SyedShahulAhmed/PixFit
 cd social-share
 ```
 
